@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import seba.java.cursoJava.UserRepository;
 import seba.java.cursoJava.models.request.UserDetailsRequestModel;
 import seba.java.cursoJava.models.response.UserRest;
 import seba.java.cursoJava.services.UserServiceInterface;
