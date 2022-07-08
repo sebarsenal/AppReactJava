@@ -17,10 +17,10 @@ public class UserService implements UserServiceInterface {
     @Override
     public UserDTO createUser(UserDTO user) {
 
-        if(userRepository.findByEmail(user.getEmail())!= null) 
+        if (userRepository.findByEmail(user.getEmail()) != null)
             throw new RuntimeException("El email ya está en uso");
 
-        // TODO Logica para crear usuario
+        //Lógica para crear usuario
         UserEntity userEntity = new UserEntity();
         BeanUtils.copyProperties(user, userEntity);
 
