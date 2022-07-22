@@ -18,4 +18,9 @@ public class CursoJavaApplication {
 		return new BCryptPasswordEncoder();
 	}
 
+	@Bean
+	public SpringApplicationConetxt springApplicationConetxt(){
+		return new SpringApplicationConetxt();
+	}
+
 }
