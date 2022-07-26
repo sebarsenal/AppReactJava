@@ -5,6 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import seba.java.cursoJava.security.AppProperties;
+
 @SpringBootApplication
 public class CursoJavaApplication {
 
@@ -19,8 +21,13 @@ public class CursoJavaApplication {
 	}
 
 	@Bean
-	public SpringApplicationConetxt springApplicationConetxt(){
-		return new SpringApplicationConetxt();
+	public SpringApplicationContext springApplicationContext(){
+		return new SpringApplicationContext();
+	}
+
+	@Bean(name = "AppProperties")
+	public AppProperties getAppProperties (){
+		return new AppProperties();
 	}
 
 }

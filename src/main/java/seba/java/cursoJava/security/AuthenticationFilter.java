@@ -20,7 +20,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import seba.java.cursoJava.SpringApplicationConetxt;
+import seba.java.cursoJava.SpringApplicationContext;
 import seba.java.cursoJava.models.request.UserLoginRequestModel;
 import seba.java.cursoJava.services.UserServiceInterface;
 import seba.java.cursoJava.shared.dto.UserDTO;
@@ -56,10 +56,10 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
         String token = Jwts.builder()
                 .setSubject(username)
                 .setExpiration(new Date(System.currentTimeMillis() + SecurityConstants.EXPIRATION_DATE))
-                .signWith(SignatureAlgorithm.HS512, SecurityConstants.TOKEN_SECRET).compact();
+                .signWith(SignatureAlgorithm.HS512, SecurityConstants.getTokenSecret()).compact();
 
         // añadir el header con el id publico
-        UserServiceInterface userService = (UserServiceInterface) SpringApplicationConetxt.getBean("userService");
+        UserServiceInterface userService = (UserServiceInterface) SpringApplicationContext.getBean("userService");
         UserDTO userDto = userService.getUser(username);
 
         response.addHeader("UserId", userDto.getUserId());
